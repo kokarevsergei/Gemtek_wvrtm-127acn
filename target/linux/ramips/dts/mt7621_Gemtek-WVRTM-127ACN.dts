@@ -1,0 +1,77 @@
+/dts-v1/;
+#include "mt7621.dtsi"
+
+#include <dt-bindings/input/input.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+    compatible = "gemtek,wvrtm-127acn", "mediatek,mt7621-soc";
+    model = "Gemtek WVRTM-127ACN Router";
+    chosen {
+        bootargs = "console=ttyS0,57600 root=31:03 rootfstype=squashfs,jffs2";
+        stdout-path = "serial0:115200n8";
+    };
+
+    memory@0 {
+        device_type = "memory";
+        reg = <0x0 0x8000000>;
+    };
+
+    chosen {
+        bootargs = "console=ttyS0,115200n8 root=/dev/mtdblock6";
+    };
+ 
+   partitions {
+        compatible = "fixed-partitions";
+        #address-cells = <1>;
+        #size-cells = <1>;
+
+        partition@0 {
+            label = "Bootloader";
+            reg = <0x0 0x100000>;
+            read-only;
+        };
+
+        partition@100000 {
+            label = "Bootloader2";
+            reg = <0x100000 0x100000>;
+            read-only;
+        };
+
+        partition@200000 {
+            label = "Config";
+            reg = <0x200000 0x100000>;
+            read-only;
+        };
+
+        partition@300000 {
+            label = "Env1";
+            reg = <0x300000 0x280000>;
+        };
+
+        partition@580000 {
+            label = "Env2";
+            reg = <0x580000 0x280000>;
+        };
+
+        partition@800000 {
+            label = "Kernel";
+            reg = <0x800000 0x2000000>;
+        };
+
+        partition@2800000 {
+            label = "Kernel2";
+            reg = <0x2800000 0x2000000>;
+        };
+
+        partition@4800000 {
+            label = "Storage1";
+            reg = <0x4800000 0x1c00000>;
+        };
+
+        partition@6400000 {
+            label = "Storage2";
+            reg = <0x6400000 0x1b80000>;
+        };
+    };
+};
