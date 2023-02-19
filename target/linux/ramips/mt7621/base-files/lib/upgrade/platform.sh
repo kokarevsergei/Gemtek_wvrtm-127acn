@@ -99,6 +99,7 @@ platform_do_upgrade() {
 	netgear,wac124|\
 	netgear,wax202|\
 	netis,wf2881|\
+	gemtek,wvrtm-127acn|\
 	raisecom,msg1500-x-00|\
 	rostelecom,rt-sf-1|\
 	sercomm,na502|\
