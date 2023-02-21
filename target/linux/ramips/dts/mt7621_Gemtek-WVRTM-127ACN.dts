@@ -6,7 +6,7 @@
 
 / {
     compatible = "gemtek,wvrtm-127acn", "mediatek,mt7621-soc";
-    model = "Gemtek WVRTM-127ACN Router";
+    model = "gemtek_wvrtm-127acn";
     chosen {
         bootargs = "console=ttyS0,57600 root=31:03 rootfstype=squashfs,jffs2";
         stdout-path = "serial0:115200n8";
