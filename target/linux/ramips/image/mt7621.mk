@@ -934,7 +934,7 @@ TARGET_DEVICES += gehua_ghl-r-001
 
 define Device/gemtek_wvrtm-127acn
   $(Device/uimage-lzma-loader)
-  DTS := mt7621_gemtek_wvrtm-127acn
+  DTS := mt7621_Gemtek-WRTM-127ACN
   IMAGE_SIZE := 32768k
   DEVICE_VENDOR := Gemtek
   DEVICE_MODEL := WVRTM-127ACN
