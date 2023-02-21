@@ -943,7 +943,7 @@ define Device/Gemtek-WVRTM-127ACN
   DEVICE_VENDOR := Gemtek
   DEVICE_MODEL := WVRTM-127ACN
   DEVICE_TITLE := Gemtek WVRTM-127ACN
-  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb3 kmod-fs-ext4 kmod-usb2 kmod-usb-ohci kmod-usb-uhci kmod-fs-vfat kmod-mt76-core kmod-mt7603 kmod-mt7612e
+  DEVICE_PACKAGES := kmod-mt7603 kmod-usb2 kmod-mt76x2 kmod-usb3 kmod-usb-ledtrig-usbport
   IMAGES += factory.bin
   IMAGE/factory.bin := append-kernel | pad-to $$$$(BLOCKSIZE) | append-rootfs | pad-rootfs | check-size $$$$(IMAGE_SIZE)
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
