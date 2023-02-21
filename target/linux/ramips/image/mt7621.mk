@@ -932,26 +932,15 @@ define Device/gehua_ghl-r-001
 endef
 TARGET_DEVICES += gehua_ghl-r-001
 
-define Device/Gemtek-WVRTM-127ACN
-  $(Device/dsa-migration)
+define Device/gemtek_wvrtm-127acn
   $(Device/uimage-lzma-loader)
-  DTS := mt7621_Gemtek-WVRTM-127ACN
+  DTS := mt7621_gemtek_wvrtm-127acn
   IMAGE_SIZE := 32768k
-  BLOCKSIZE := 128k
-  PAGESIZE := 2048
-  KERNEL_SIZE := 4096k
   DEVICE_VENDOR := Gemtek
   DEVICE_MODEL := WVRTM-127ACN
-  DEVICE_TITLE := Gemtek WVRTM-127ACN
-  DEVICE_PACKAGES := kmod-mt7603 kmod-usb2 kmod-mt76x2 kmod-usb3 kmod-usb-ledtrig-usbport
-  IMAGES += factory.bin
-  IMAGE/factory.bin := append-kernel | pad-to $$$$(BLOCKSIZE) | append-rootfs | pad-rootfs | check-size $$$$(IMAGE_SIZE)
-  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
-  KERNEL := kernel-bin | patch-cmdline | lzma | dtb-kernel
-  KERNEL_INITRAMFS := kernel-bin | patch-cmdline | lzma | append-ubi | check-size
-  SUPPORTED_DEVICES += wvrtm-127acn
-endef
-TARGET_DEVICES += Gemtek-WVRTM-127ACN
+  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb3
+  endef
+TARGET_DEVICES += gemtek_wvrtm-127acn
 
 define Device/glinet_gl-mt1300
   $(Device/dsa-migration)
