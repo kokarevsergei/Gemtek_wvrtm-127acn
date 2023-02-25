@@ -17,10 +17,6 @@
         reg = <0x0 0x8000000>;
     };
 
-    chosen {
-        bootargs = "console=ttyS0,115200n8 root=/dev/mtdblock6";
-    };
- 
    partitions {
         compatible = "fixed-partitions";
         #address-cells = <1>;
