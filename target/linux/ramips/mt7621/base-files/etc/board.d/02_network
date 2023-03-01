@@ -19,7 +19,9 @@ ramips_setup_interfaces()
 	mikrotik,ltap-2hnd|\
 	mikrotik,routerboard-m11g|\
 	netgear,ex6150|\
-	gemtek,wvrtm-127acn|\
+	gemtek,wvrtm-127acn)
+	ucidef_set_interfaces_lan_wan "lan2 lan1" "wan"
+	        ;;
 	sercomm,na502|\
 	sercomm,na502s|\
 	thunder,timecloud|\
