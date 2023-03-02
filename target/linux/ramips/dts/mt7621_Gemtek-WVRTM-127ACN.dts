@@ -17,8 +17,6 @@
         device_type = "memory";
         reg = <0x0 0x8000000>;
     };
-
-
 };
 
 &pcie {
@@ -26,9 +24,10 @@
 };
 
 &pcie0 {
-    wifi0: mt76@0,0 {
+	wifi@0,0 {
+		compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <&factory 0x8000>;
+		mediatek,mtd-eeprom = <&env 0x8000>;
 		ieee80211-freq-limit = <5000000 6000000>;
 
 //	nvmem-cells = <&macaddr_factory_21000>;
@@ -38,9 +37,10 @@
 };
 
 &pcie1 {
-    wifi1: mt76@0,0 {
+	wifi@0,0 {
+		compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <&factory 0x0000>;
+		mediatek,mtd-eeprom = <&env 0x0000>;
 		ieee80211-freq-limit = <2400000 2500000>;
 
 //	nvmem-cells = <&macaddr_factory_21000>;
@@ -75,7 +75,7 @@
             read-only;
         };
 
-        partition@300000 {
+        env: partition@300000 {
             label = "Env1";
             reg = <0x300000 0x280000>;
         };
@@ -135,4 +135,18 @@
 	groups = "i2c", "jtag";
 	function = "gpio";
     };
+};
+
+&env {
+	compatible = "nvmem-cells";
+	#address-cells = <1>;
+	#size-cells = <1>;
+
+	macaddr_env_e000: macaddr@e000 {
+		reg = <0xe000 0x6>;
+	};
+
+	macaddr_env_e006: macaddr@e006 {
+		reg = <0xe006 0x6>;
+	};
 };
