@@ -19,36 +19,6 @@
     };
 };
 
-&pcie {
-    status = "okay";
-};
-
-&pcie0 {
-	wifi@0,0 {
-		compatible = "mediatek,mt76";
-		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <&env 0x8000>;
-		ieee80211-freq-limit = <5000000 6000000>;
-
-//	nvmem-cells = <&macaddr_factory_21000>;
-//	nvmem-cell-names = "mac-address";
-//	mac-address-increment = <(5)>;
-    };
-};
-
-&pcie1 {
-	wifi@0,0 {
-		compatible = "mediatek,mt76";
-		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <&env 0x0000>;
-		ieee80211-freq-limit = <2400000 2500000>;
-
-//	nvmem-cells = <&macaddr_factory_21000>;
-//	nvmem-cell-names = "mac-address";
-//	mac-address-increment = <(4)>;
-    };
-};
-
 &nand {
     status = "okay";
 
@@ -123,9 +93,7 @@
 	port@4 {
 	    status = "okay";
 	    label = "wan";
-//	nvmem-cells = <&macaddr_factory_e006>;
-//    nvmem-cell-names = "mac-address";
-	};
+	   };
 
     };
 };
@@ -137,16 +105,45 @@
     };
 };
 
+&pcie {
+    status = "okay";
+};
+
+&pcie0 {
+	wifi@0,0 {
+		compatible = "mediatek,mt76";
+		reg = <0x0000 0 0 0 0>;
+		mediatek,mtd-eeprom = <0x1df 0x6>;
+		ieee80211-freq-limit = <5000000 6000000>;
+    };
+};
+
+&pcie1 {
+	wifi@0,0 {
+		compatible = "mediatek,mt76";
+		reg = <0x0000 0 0 0 0>;
+		mediatek,mtd-eeprom = <0x1c4 0x6>;
+		ieee80211-freq-limit = <2400000 2500000>;
+    };
+};
+
+&ethernet {
+	mtd-mac-address = <&env 0xfe>;
+};
+
 &env {
 	compatible = "nvmem-cells";
 	#address-cells = <1>;
 	#size-cells = <1>;
 
-	macaddr_env_e000: macaddr@e000 {
-		reg = <0xe000 0x6>;
+	macaddr_env_1df: macaddr@1df {
+		reg = <0x1df 0x6>;
 	};
 
-	macaddr_env_e006: macaddr@e006 {
-		reg = <0xe006 0x6>;
+	macaddr_env_1c4: macaddr@1c4 {
+		reg = <0x1c4 0x6>;
+	};
+    macaddr_env_fe: macaddr@fe {
+		reg = <0xfe 0x6>;
 	};
 };
