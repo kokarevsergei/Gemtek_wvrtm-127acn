@@ -113,7 +113,7 @@
 	wifi@0,0 {
 		compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <0x1df 0x6>;
+		mediatek,mtd-eeprom = <0x3001df 0x6>;
 		ieee80211-freq-limit = <5000000 6000000>;
     };
 };
@@ -122,13 +122,13 @@
 	wifi@0,0 {
 		compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <0x1c4 0x6>;
+		mediatek,mtd-eeprom = <0x3001c4 0x6>;
 		ieee80211-freq-limit = <2400000 2500000>;
     };
 };
 
 &ethernet {
-	mtd-mac-address = <&env 0xfe>;
+	mtd-mac-address = <&env 0x3000f6>;
 };
 
 &env {
@@ -137,13 +137,13 @@
 	#size-cells = <1>;
 
 	macaddr_env_1df: macaddr@1df {
-		reg = <0x1df 0x6>;
+		reg = <0x3001df 0x6>;
 	};
 
 	macaddr_env_1c4: macaddr@1c4 {
-		reg = <0x1c4 0x6>;
+		reg = <0x3001c4 0x6>;
 	};
-        macaddr_env_fe: macaddr@fe {
-		reg = <0xfe 0x6>;
+    macaddr_env_fe: macaddr@fe {
+		reg = <0x3000f6 0x6>;
 	};
 };
