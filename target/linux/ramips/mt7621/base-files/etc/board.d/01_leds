@@ -56,6 +56,7 @@ d-team,newifi-d2)
 	;;
 d-team,pbr-m1|\
 gehua,ghl-r-001|\
+gemtek,wvrtm-127acn|\
 jcg,y2|\
 xzwifi,creativebox-v1)
 	ucidef_set_led_netdev "internet" "internet" "blue:internet" "wan"
