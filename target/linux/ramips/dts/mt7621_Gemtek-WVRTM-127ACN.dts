@@ -39,13 +39,13 @@
             read-only;
         };
 
-        partition@200000 {
+Config: partition@200000 {
             label = "Config";
             reg = <0x200000 0x100000>;
             read-only;
         };
 
-        env: partition@300000 {
+        partition@300000 {
             label = "Env1";
             reg = <0x300000 0x280000>;
         };
@@ -93,6 +93,7 @@
 	port@4 {
 	    status = "okay";
 	    label = "wan";
+        mtd-mac-address = <&Config 0xe006>;
 	   };
 
     };
@@ -105,45 +106,30 @@
     };
 };
 
+&gmac0 {
+	mtd-mac-address = <&Config 0xe000>;
+};
+
 &pcie {
     status = "okay";
 };
 
 &pcie0 {
-	wifi@0,0 {
-		compatible = "mediatek,mt76";
+	wifi0: mt76@0,0 {
 		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <0x3001df 0x6>;
+		mediatek,mtd-eeprom = <&Config 0x8004>;
 		ieee80211-freq-limit = <5000000 6000000>;
-    };
+	};
 };
 
 &pcie1 {
-	wifi@0,0 {
-		compatible = "mediatek,mt76";
+	wifi1: mt76@0,0 {
 		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <0x3001c4 0x6>;
+		mediatek,mtd-eeprom = <&Config 0x0004>;
 		ieee80211-freq-limit = <2400000 2500000>;
-    };
+	};
 };
 
-&ethernet {
-	mtd-mac-address = <&env 0x3000f6>;
-};
-
-&env {
-	compatible = "nvmem-cells";
-	#address-cells = <1>;
-	#size-cells = <1>;
-
-	macaddr_env_1df: macaddr@1df {
-		reg = <0x3001df 0x6>;
-	};
-
-	macaddr_env_1c4: macaddr@1c4 {
-		reg = <0x3001c4 0x6>;
-	};
-    macaddr_env_fe: macaddr@fe {
-		reg = <0x3000f6 0x6>;
-	};
+&sdhci {
+	status = "okay";
 };
