@@ -80,12 +80,12 @@ Config: partition@200000 {
 
 &switch0 {
     ports {
-	port@2 {
+	port@1 {
 	    status = "okay";
 	    label = "lan2";
 	};
 
-	port@3 {
+	port@2 {
 	    status = "okay";
 	    label = "lan1";
 	};
@@ -116,6 +116,7 @@ Config: partition@200000 {
 
 &pcie0 {
 	wifi0: mt76@0,0 {
+        compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&Config 0x8004>;
 		ieee80211-freq-limit = <5000000 6000000>;
@@ -124,6 +125,7 @@ Config: partition@200000 {
 
 &pcie1 {
 	wifi1: mt76@0,0 {
+        compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&Config 0x0004>;
 		ieee80211-freq-limit = <2400000 2500000>;
