@@ -93,7 +93,7 @@ Config: partition@200000 {
 	port@4 {
 	    status = "okay";
 	    label = "wan";
-        mtd-mac-address = <&Config 0xe006>;
+        mtd-mac-address = <&Config 0x1e700>;
 	   };
 
     };
@@ -107,7 +107,7 @@ Config: partition@200000 {
 };
 
 &gmac0 {
-	mtd-mac-address = <&Config 0x1e000>;
+	mtd-mac-address = <&Config 0x1e700>;
 };
 
 &pcie {
@@ -118,7 +118,7 @@ Config: partition@200000 {
 	wifi0: mt76@0,0 {
         compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <&Config 0x18004>;
+		mediatek,mtd-eeprom = <&Config 0x18404>;
 		ieee80211-freq-limit = <5000000 6000000>;
 	};
 };
