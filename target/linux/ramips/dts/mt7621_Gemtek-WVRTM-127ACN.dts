@@ -107,7 +107,7 @@ Config: partition@200000 {
 };
 
 &gmac0 {
-	mtd-mac-address = <&Config 0xe000>;
+	mtd-mac-address = <&Config 0x1e000>;
 };
 
 &pcie {
@@ -118,7 +118,7 @@ Config: partition@200000 {
 	wifi0: mt76@0,0 {
         compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <&Config 0x8004>;
+		mediatek,mtd-eeprom = <&Config 0x18004>;
 		ieee80211-freq-limit = <5000000 6000000>;
 	};
 };
@@ -127,7 +127,7 @@ Config: partition@200000 {
 	wifi1: mt76@0,0 {
         compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <&Config 0x0004>;
+		mediatek,mtd-eeprom = <&Config 0x10004>;
 		ieee80211-freq-limit = <2400000 2500000>;
 	};
 };
