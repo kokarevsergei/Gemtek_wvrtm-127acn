@@ -934,11 +934,12 @@ TARGET_DEVICES += gehua_ghl-r-001
 
 define Device/gemtek_wvrtm-127acn
   $(Device/uimage-lzma-loader)
-  DTS := mt7621_Gemtek-WRTM-127ACN
-  IMAGE_SIZE := 33554k
+  DTS := mt7621_gemtek_wvrtm-127acn
+  IMAGE_SIZE := 62915k
   DEVICE_VENDOR := Gemtek
   DEVICE_MODEL := WVRTM-127ACN
-  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb3 kmod-mt7603 kmod-usb-serial kmod-mt7530
+  DEVICE_PACKAGES := kmod-ata-ahci kmod-mt7603 kmod-mt76x2 kmod-usb3 \
+  kmod-usb-ledtrig-usbport uboot-envtools
   endef
 TARGET_DEVICES += gemtek_wvrtm-127acn
 
