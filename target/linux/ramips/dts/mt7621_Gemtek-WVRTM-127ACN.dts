@@ -45,7 +45,7 @@ Config: partition@200000 {
             read-only;
         };
 
-        partition@300000 {
+Env1:   partition@300000 {
             label = "Env1";
             reg = <0x300000 0x280000>;
         };
@@ -80,12 +80,12 @@ Config: partition@200000 {
 
 &switch0 {
     ports {
-	port@1 {
+	port@2 {
 	    status = "okay";
 	    label = "lan2";
 	};
 
-	port@2 {
+	port@3 {
 	    status = "okay";
 	    label = "lan1";
 	};
@@ -93,7 +93,6 @@ Config: partition@200000 {
 	port@4 {
 	    status = "okay";
 	    label = "wan";
-        mtd-mac-address = <&Config 0x1e700>;
 	   };
 
     };
@@ -104,10 +103,6 @@ Config: partition@200000 {
 	groups = "i2c", "jtag";
 	function = "gpio";
     };
-};
-
-&gmac0 {
-	mtd-mac-address = <&Config 0x1e700>;
 };
 
 &pcie {
