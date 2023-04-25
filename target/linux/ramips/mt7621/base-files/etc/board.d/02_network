@@ -19,7 +19,6 @@ ramips_setup_interfaces()
 	mikrotik,ltap-2hnd|\
 	mikrotik,routerboard-m11g|\
 	netgear,ex6150|\
-	gemtek,wvrtm-127acn)
 	ucidef_set_interfaces_lan_wan "lan2 lan1" "wan"
 	        ;;
 	sercomm,na502|\
@@ -73,6 +72,9 @@ ramips_setup_interfaces()
 	oraybox,x3a|\
 	renkforce,ws-wn530hp3-a|\
 	xiaomi,mi-router-3g|\
+	gemtek,wvrtm-127acn)
+                ucidef_set_interfaces_lan_wan "lan1 lan2" "wan"
+		;;
 	xiaomi,mi-router-3g-v2|\
 	xiaomi,mi-router-4|\
 	xiaomi,mi-router-4a-gigabit|\
@@ -194,6 +196,11 @@ ramips_setup_macs()
 		lan_mac=$(mtd_get_mac_ascii u-boot-env ethaddr)
 		wan_mac=$(mtd_get_mac_ascii u-boot-env wanaddr)
 		label_mac=$wan_mac
+		;;
+	gemtek,wvrtm-127acn)
+                lan_mac=$(mtd_get_mac_ascii Env1 lanaddr)
+		wan_mac=$(mtd_get_mac_ascii Env1 ethaddr)
+                label_mac=$lan_mac
 		;;
 	h3c,tx1800-plus|\
 	h3c,tx1801-plus|\
