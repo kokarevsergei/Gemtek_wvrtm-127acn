@@ -199,7 +199,7 @@ ramips_setup_macs()
 		;;
 	gemtek,wvrtm-127acn)
                 lan_mac=$(mtd_get_mac_ascii Env1 lanaddr)
-		wan_mac=$(mtd_get_mac_ascii Env1 ethaddr)
+		wan_mac=$lan_mac
                 label_mac=$lan_mac
 		;;
 	h3c,tx1800-plus|\
