@@ -80,19 +80,20 @@ Env1:   partition@300000 {
 
 &switch0 {
     ports {
-	port@2 {
+	port@4 {
 	    status = "okay";
-	    label = "lan2";
+	    label = "eth2.1";
 	};
 
 	port@3 {
 	    status = "okay";
-	    label = "lan1";
+	    label = "eth2.2";
 	};
 
-	port@4 {
+	port@2 {
 	    status = "okay";
-	    label = "wan";
+	    label = "eth2";
+        mtd-mac-address = <&Config 0x1e700>;
 	   };
 
     };
@@ -110,7 +111,7 @@ Env1:   partition@300000 {
 };
 
 &pcie0 {
-	wifi0: mt76@0,0 {
+	rai0: mt76@0,0 {
         compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&Config 0x8000>;
@@ -119,7 +120,7 @@ Env1:   partition@300000 {
 };
 
 &pcie1 {
-	wifi1: mt76@0,0 {
+	ra0: mt76@0,0 {
         compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&Config 0x0>;
@@ -128,7 +129,7 @@ Env1:   partition@300000 {
 };
 
 &gmac0 {
-	mtd-mac-address = <&Config 0xe000>;
+	mtd-mac-address = <&Config 0x1e700>;
 };
 
 &sdhci {
