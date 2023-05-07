@@ -938,8 +938,8 @@ define Device/gemtek_wvrtm-127acn
   IMAGE_SIZE := 62915k
   DEVICE_VENDOR := Gemtek
   DEVICE_MODEL := WVRTM-127ACN
-  DEVICE_PACKAGES := kmod-ata-ahci kmod-mt7603 kmod-mt76x2 kmod-usb3 \
-  kmod-usb-ledtrig-usbport uboot-envtools
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3 \
+	kmod-usb-ledtrig-usbport
   endef
 TARGET_DEVICES += gemtek_wvrtm-127acn
 
