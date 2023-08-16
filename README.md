@@ -36,4 +36,6 @@ MTD partition:
 
 0x000006400000-0x000007f80000 : "Storage2"
 
+Dump - https://drive.google.com/file/d/1azsE_kE_1TrtxtxuOwPgTJiK8J2oQr9S/view?usp=drive_link
+
 More information on how to get eeprom and more - https://github.com/digiampietro/hacking-gemtek
