@@ -80,7 +80,7 @@ Env1:   partition@300000 {
 
 &switch0 {
     ports {
-	port@4 {
+	port@2 {
 	    status = "okay";
 	    label = "eth2.1";
 	};
@@ -90,7 +90,7 @@ Env1:   partition@300000 {
 	    label = "eth2.2";
 	};
 
-	port@2 {
+	port@4 {
 	    status = "okay";
 	    label = "eth2";
         mtd-mac-address = <&Config 0x1e700>;
