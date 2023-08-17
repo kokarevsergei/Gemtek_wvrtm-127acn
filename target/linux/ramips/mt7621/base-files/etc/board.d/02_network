@@ -72,9 +72,6 @@ ramips_setup_interfaces()
 	oraybox,x3a|\
 	renkforce,ws-wn530hp3-a|\
 	xiaomi,mi-router-3g|\
-	gemtek,wvrtm-127acn)
-                ucidef_set_interfaces_lan_wan "eth2.2 eth2.1" "eth2"
-		;;
 	xiaomi,mi-router-3g-v2|\
 	xiaomi,mi-router-4|\
 	xiaomi,mi-router-4a-gigabit|\
@@ -141,6 +138,9 @@ ramips_setup_interfaces()
 		;;
 	*)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" "wan"
+		;;
+        gemtek,wvrtm-127acn)
+                ucidef_set_interfaces_lan_wan "eth2.2 eth2.1" "eth2"
 		;;
 	esac
 }
